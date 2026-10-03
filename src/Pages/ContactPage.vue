@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+
+const emailTerkirim = ref(false)
+</script>
+
 <template>
     <main>
         <section class="kontak">
@@ -13,7 +19,7 @@
                 <p><span>📍</span> SMK Gading Island</p>
             </div>
 
-            <form class="form">         
+            <form v-if="!emailTerkirim" class="form" @submit.prevent="emailTerkirim = true">
                 <label for="nama">Nama</label>
                 <input id="nama" type="text" placeholder="Nama lengkap" required />
 
@@ -25,6 +31,13 @@
 
                 <button type="submit">Kirim Pesan</button>
             </form>
+
+            <div v-else class="form success" role="status" aria-live="polite">
+                <span class="success-icon" aria-hidden="true">✓</span>
+                <h2>Pesan berhasil dikirim!</h2>
+                <p>Terima kasih sudah menghubungi kami. Kami akan segera membalas melalui email.</p>
+                <button type="button" @click="emailTerkirim = false">Kirim pesan lain</button>
+            </div>
         </section>
     </main>
 </template>
@@ -102,6 +115,31 @@ button {
 }
 button:hover {
     background: var(--primary-dark);
+}
+.success {
+    align-items: center;
+    justify-content: center;
+    min-height: 270px;
+    text-align: center;
+}
+.success-icon {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #e7f6eb;
+    color: #258343;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.success h2 {
+    margin: 0;
+}
+.success p {
+    max-width: 34ch;
+    margin: 0;
+    color: var(--text-muted);
 }
 
 </style>
