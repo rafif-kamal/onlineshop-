@@ -64,12 +64,4 @@ main {
   margin: 0.25rem 0 2rem;
   color: var(--text-muted);
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-  width: 100%;
-}
-
 </style>

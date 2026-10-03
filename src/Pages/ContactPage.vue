@@ -13,7 +13,7 @@
                 <p><span>📍</span> SMK Gading Island</p>
             </div>
 
-            <form class="form">
+            <form class="form">         
                 <label for="nama">Nama</label>
                 <input id="nama" type="text" placeholder="Nama lengkap" required />
 
@@ -31,27 +31,42 @@
 
 <style scoped>
 .kontak {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    background: linear-gradient(yellow, white);
-    border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: 1rem;
+  padding: 5rem 2rem 5rem;
+  text-align: center;
+  background: linear-gradient(yellow, white);
+  border-radius: 20px;
 }
+
+.kontak h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
 .sub {
-    max-width: 60ch;
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    text-align: center;
-   
+  max-width: 60ch;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  text-align: center;
 }
 .kontak-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
     max-width: 850px;
     margin: 0 auto;
+}
+@media (max-width: 640px) {
+    .kontak-content {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
 }
 .info,
 .form {
@@ -69,6 +84,7 @@
 input,
 textarea {
     width: 100%;
+    box-sizing: border-box;
     padding: 0.7rem;
     border: 1px solid var(--border-dark);
     border-radius: 6px;
